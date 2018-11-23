@@ -58,26 +58,26 @@ struct HTMLRenderer : OutputDev
 
     // Does this device use upside-down coordinates?
     // (Upside-down means (0,0) is the top left corner of the page.)
-    virtual bool upsideDown() { return gFalse; }
+    virtual bool upsideDown() { return false; }
 
     // Does this device use drawChar() or drawString()?
-    virtual bool useDrawChar() { return gFalse; }
+    virtual bool useDrawChar() { return false; }
 
     // Does this device use functionShadedFill(), axialShadedFill(), and
     // radialShadedFill()?  If this returns false, these shaded fills
     // will be reduced to a series of other drawing operations.
-    virtual bool useShadedFills(int type) { return (type == 2) ? gTrue: gFalse; }
+    virtual bool useShadedFills(int type) { return (type == 2) ? true: false; }
 
     // Does this device use beginType3Char/endType3Char?  Otherwise,
     // text in Type 3 fonts will be drawn with drawChar/drawString.
-    virtual bool interpretType3Chars() { return gFalse; }
+    virtual bool interpretType3Chars() { return false; }
 
     // Does this device need non-text content?
-    virtual bool needNonText() { return (param.process_nontext) ? gTrue: gFalse; }
+    virtual bool needNonText() { return (param.process_nontext) ? true: false; }
 
     // Does this device need to clip pages to the crop box even when the
     // box is the crop box?
-    virtual bool needClipToCropBox() { return gTrue; }
+    virtual bool needClipToCropBox() { return true; }
 
     virtual void setDefaultCTM(double *ctm);
 

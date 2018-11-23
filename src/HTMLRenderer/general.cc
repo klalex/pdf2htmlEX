@@ -53,7 +53,7 @@ HTMLRenderer::HTMLRenderer(Param & param)
     if(!(param.debug))
     {
         //disable error messages of poppler
-        globalParams->setErrQuiet(gTrue);
+        globalParams->setErrQuiet(true);
     }
 
     ffw_init(param.debug);
@@ -262,7 +262,7 @@ void HTMLRenderer::endPage() {
     // process form
     if(param.process_form)
         process_form(*f_curpage);
-    
+
     // process links before the page is closed
     cur_doc->processLinks(this, pageNum);
 
@@ -404,7 +404,7 @@ void HTMLRenderer::pre_process(PDFDoc * doc)
 void HTMLRenderer::post_process(void)
 {
     dump_css();
-    
+
     // close files if they opened
     if (param.process_outline)
     {

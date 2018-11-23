@@ -108,7 +108,7 @@ void CairoBackgroundRenderer::init(PDFDoc * doc)
 }
 
 static bool annot_cb(Annot *, void * pflag) {
-    return (*((bool*)pflag)) ? gTrue : gFalse;
+    return (*((bool*)pflag)) ? true : false;
 };
 
 bool CairoBackgroundRenderer::render_page(PDFDoc * doc, int pageno)
