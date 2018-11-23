@@ -205,8 +205,8 @@ string HTMLRenderer::dump_type3_font (GfxFont * font, FontInfo & info)
     auto used_map = preprocessor.get_code_map(hash_ref(font->getID()));
 
     //calculate transformed metrics
-    double * font_bbox = font->getFontBBox();
-    double * font_matrix = font->getFontMatrix();
+    const double * font_bbox = font->getFontBBox();
+    const double * font_matrix = font->getFontMatrix();
     double transformed_bbox[4];
     memcpy(transformed_bbox, font_bbox, 4 * sizeof(double));
     /*
