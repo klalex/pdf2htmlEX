@@ -506,7 +506,7 @@ void HTMLRenderer::embed_font(const string & filepath, GfxFont * font, FontInfo 
             {
                 if(!used_map[i]) continue;
 
-                auto cn = font_8bit->getCharName(i);
+                const auto cn = font_8bit->getCharName(i);
                 if(cn == nullptr)
                 {
                     continue;
