@@ -22,7 +22,7 @@
 namespace pdf2htmlEX {
 
 // Based on BackgroundRenderer from poppler
-class SplashBackgroundRenderer : public BackgroundRenderer, SplashOutputDev 
+class SplashBackgroundRenderer : public BackgroundRenderer, SplashOutputDev
 {
 public:
   static const SplashColor white;
@@ -37,10 +37,10 @@ public:
 
   // Does this device use beginType3Char/endType3Char?  Otherwise,
   // text in Type 3 fonts will be drawn with drawChar/drawString.
-  virtual GBool interpretType3Chars() { return !param.process_type3; }
+  virtual bool interpretType3Chars() { return !param.process_type3; }
 
   virtual void startPage(int pageNum, GfxState *state, XRef *xrefA);
-  
+
   virtual void drawChar(GfxState *state, double x, double y,
       double dx, double dy,
       double originX, double originY,

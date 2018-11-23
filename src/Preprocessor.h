@@ -30,11 +30,11 @@ public:
 
     void process(PDFDoc * doc);
 
-    virtual GBool upsideDown() { return gFalse; }
-    virtual GBool useDrawChar() { return gTrue; }
-    virtual GBool interpretType3Chars() { return gFalse; }
-    virtual GBool needNonText() { return gFalse; }
-    virtual GBool needClipToCropBox() { return gTrue; }
+    virtual bool upsideDown() { return gFalse; }
+    virtual bool useDrawChar() { return gTrue; }
+    virtual bool interpretType3Chars() { return gFalse; }
+    virtual bool needNonText() { return gFalse; }
+    virtual bool needClipToCropBox() { return gTrue; }
 
     virtual void drawChar(GfxState *state, double x, double y,
       double dx, double dy,

@@ -106,7 +106,7 @@ void SplashBackgroundRenderer::init(PDFDoc * doc)
     startDoc(doc);
 }
 
-static GBool annot_cb(Annot *, void * pflag) {
+static bool annot_cb(Annot *, void * pflag) {
     return (*((bool*)pflag)) ? gTrue : gFalse;
 };
 
@@ -116,7 +116,7 @@ bool SplashBackgroundRenderer::render_page(PDFDoc * doc, int pageno)
     bool process_annotation = param.process_annotation;
 
     doc->displayPage(this, pageno, param.actual_dpi, param.actual_dpi,
-            0, 
+            0,
             (!(param.use_cropbox)),
             false, false,
             nullptr, nullptr, &annot_cb, &process_annotation);
@@ -145,8 +145,8 @@ void SplashBackgroundRenderer::embed_image(int pageno)
 
         auto & f_page = *(html_renderer->f_curpage);
         auto & all_manager = html_renderer->all_manager;
-        
-        f_page << "<img class=\"" << CSS::BACKGROUND_IMAGE_CN 
+
+        f_page << "<img class=\"" << CSS::BACKGROUND_IMAGE_CN
             << " " << CSS::LEFT_CN      << all_manager.left.install(((double)xmin) * h_scale)
             << " " << CSS::BOTTOM_CN    << all_manager.bottom.install(((double)getBitmapHeight() - 1 - ymax) * v_scale)
             << " " << CSS::WIDTH_CN     << all_manager.width.install(((double)(xmax - xmin + 1)) * h_scale)
@@ -210,7 +210,7 @@ void SplashBackgroundRenderer::dump_image(const char * filename, int x1, int y1,
 
     if(!writer->init(f, width, height, param.actual_dpi, param.actual_dpi))
         throw "Cannot initialize image writer";
-        
+
     auto * bitmap = getBitmap();
     assert(bitmap->getMode() == splashModeRGB8);
 
@@ -225,8 +225,8 @@ void SplashBackgroundRenderer::dump_image(const char * filename, int x1, int y1,
         pointers.push_back(p);
         p += row_size;
     }
-    
-    if(!writer->writePointers(pointers.data(), height)) 
+
+    if(!writer->writePointers(pointers.data(), height))
     {
         throw "Cannot write background image";
     }

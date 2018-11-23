@@ -107,7 +107,7 @@ void CairoBackgroundRenderer::init(PDFDoc * doc)
     startDoc(doc);
 }
 
-static GBool annot_cb(Annot *, void * pflag) {
+static bool annot_cb(Annot *, void * pflag) {
     return (*((bool*)pflag)) ? gTrue : gFalse;
 };
 
@@ -307,4 +307,3 @@ void CairoBackgroundRenderer::setMimeData(GfxState *state, Stream *str, Object *
 } // namespace pdf2htmlEX
 
 #endif // ENABLE_SVG
-
