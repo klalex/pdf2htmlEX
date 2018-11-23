@@ -594,7 +594,7 @@ void HTMLRenderer::embed_font(const string & filepath, GfxFont * font, FontInfo 
         unordered_set<int> codeset;
         bool name_conflict_warned = false;
 
-        auto ctu = font->getToUnicode();
+        const auto ctu = font->getToUnicode();
         std::fill(cur_mapping.begin(), cur_mapping.end(), -1);
         std::fill(width_list.begin(), width_list.end(), -1);
 
