@@ -500,13 +500,13 @@ void HTMLRenderer::embed_font(const string & filepath, GfxFont * font, FontInfo 
             unordered_set<string> nameset;
             bool name_conflict_warned = false;
 
-            std::fill(cur_mapping2.begin(), cur_mapping2.end(), (char*)nullptr);
+            std::fill(cur_mapping2.begin(), cur_mapping2.end(), (const char*)nullptr);
 
             for(int i = 0; i < 256; ++i)
             {
                 if(!used_map[i]) continue;
 
-                const auto cn = font_8bit->getCharName(i);
+                auto cn = font_8bit->getCharName(i);
                 if(cn == nullptr)
                 {
                     continue;
@@ -594,7 +594,7 @@ void HTMLRenderer::embed_font(const string & filepath, GfxFont * font, FontInfo 
         unordered_set<int> codeset;
         bool name_conflict_warned = false;
 
-        const auto ctu = font->getToUnicode();
+        auto ctu = font->getToUnicode();
         std::fill(cur_mapping.begin(), cur_mapping.end(), -1);
         std::fill(width_list.begin(), width_list.end(), -1);
 
