@@ -437,12 +437,6 @@ int main(int argc, char **argv)
     delete doc;
     delete globalParams;
 
-    #if POPPLER_VERSION_MAJOR == 0 && POPPLER_VERSION_MINOR < 69
-      // check for memory leaks
-      Object::memCheck(stderr);
-      gMemReport(stderr);
-    #endif
-
     exit(finished ? (EXIT_SUCCESS) : (EXIT_FAILURE));
 
     return 0;
