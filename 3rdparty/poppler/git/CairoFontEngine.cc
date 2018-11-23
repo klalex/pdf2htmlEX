@@ -416,7 +416,7 @@ CairoFreeTypeFont *CairoFreeTypeFont::create(GfxFont *gfxFont, XRef *xref,
 
   if (!(fontLoc = gfxFont->locateFont(xref, nullptr))) {
     error(errSyntaxError, -1, "Couldn't find a font for '{0:s}'",
-    	gfxFont->getName() ? gfxFont->getName()->c_str()
+    	gfxFont->getName() ? gfxFont->getName()->getCString()
 	                       : "(unnamed)");
     goto err2;
   }
@@ -435,7 +435,7 @@ CairoFreeTypeFont *CairoFreeTypeFont::create(GfxFont *gfxFont, XRef *xref,
   }
 
   if (fileName != nullptr) {
-    fileNameC = fileName->c_str();
+    fileNameC = fileName->getCString();
   }
 
   switch (fontType) {
